@@ -7,9 +7,9 @@
 // Все элементы должены иметь случайный цвет фона в формате HEX. Используй готовую функцию getRandomHexColor для получения цвета.
 // Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 
-var create = document.querySelector('[data-create]');
-var destroy = document.querySelector('[data-destroy]');
-var boxes = document.getElementById('boxes');
+const create = document.querySelector('[data-create]');
+const destroy = document.querySelector('[data-destroy]');
+const boxes = document.getElementById('boxes');
 
 create.addEventListener('click', getAmount);
 destroy.addEventListener('click', destroyBoxes);
@@ -20,15 +20,19 @@ function getAmount() {
 }
 
 function createBoxes(amount) {
-  var basicSize = 30;
-  var fragment = document.createDocumentFragment();
-  for (var i = 0; i < amount; i++) {
-    var size = basicSize + i * 10;
-    var div = document.createElement('div');
+  const basicSize = 30;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < amount; i++) {
+    const size = basicSize + i * 10;
+    const div = document.createElement('div');
     div.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}`;
     fragment.appendChild(div);
+    boxes.innerHTML = '';
   }
-  boxes.appendChild(fragment);
+  boxes.appendChild(fragment); 
+  document.querySelector('#controls input').value = "";
+
 }
 
 function destroyBoxes() {

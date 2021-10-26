@@ -1,4 +1,4 @@
-"use strict";
+    "use strict";
 
 // 1. Создаст отдельный элемент <li>. Обзательно используй метод document.createElement().
 // 2. Добавит название ингредиента как его текстовое содержимое.
@@ -15,8 +15,9 @@ const ingredients = [
 ];
 const ingredientsList = document.querySelector("#ingredients");
 
-const listOfIngridients = ingredients.forEach(ingredient => {
+const listOfIngridients = ingredients.map(ingredient => {
   let items = document.createElement("li");
+  items.classList.add("items");
   items.innerHTML = ingredient;
   ingredientsList.append(items);
 });

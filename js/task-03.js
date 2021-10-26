@@ -19,9 +19,12 @@ const images = [
 ];
 
 const listOfImages = document.querySelector('.gallery');
-images.forEach(attribute => {
+
+images.map(attribute => {
   listOfImages.insertAdjacentHTML(
     'afterbegin',
-    `<li class = galleryItem><img src = "${attribute.url}" alt = "${attribute.alt}" class = galleryImg /></li>`,
+    `<li class = "galleryItem"><img src = "${attribute.url}" alt = "${attribute.alt}" class = "galleryImg"/></li>`,
   );
-});
+}).join('');
+
+console.log(listOfImages);
