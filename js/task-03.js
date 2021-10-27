@@ -20,9 +20,7 @@ const images = [
 
 const listOfImages = document.querySelector('.gallery');
 
-images.map(({url, alt }) => 
-  listOfImages.insertAdjacentHTML(
-    'afterbegin',
-    `<li class = "galleryItem"><img src = "${url}" alt = "${alt}" class = "galleryImg"/></li>`)).join('');
-
+const gallaryMarkup = images.map(({url, alt }) => 
+    `<li class = "galleryItem"><img src = "${url}" alt = "${alt}" class = "galleryImg"/></li>`).join('');
+listOfImages.insertAdjacentHTML('afterbegin',gallaryMarkup)
 console.log(listOfImages);
