@@ -16,8 +16,9 @@ const ingredients = [
 const ingredientsList = document.querySelector("#ingredients");
 
 const listOfIngridients = ingredients.map(ingredient => {
-  let items = document.createElement("li");
-  items.classList.add("items");
-  items.innerHTML = ingredient;
-  ingredientsList.append(items);
+  let item = document.createElement("li");
+  item.classList.add("item");
+  item.textContent = ingredient;
+  return item;
 });
+  ingredientsList.append(...listOfIngridients);

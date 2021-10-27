@@ -10,6 +10,7 @@
 const create = document.querySelector('[data-create]');
 const destroy = document.querySelector('[data-destroy]');
 const boxes = document.getElementById('boxes');
+const inputEl = document.querySelector('input');
 
 create.addEventListener('click', getAmount);
 destroy.addEventListener('click', destroyBoxes);
@@ -22,16 +23,17 @@ function getAmount() {
 function createBoxes(amount) {
   const basicSize = 30;
   const fragment = document.createDocumentFragment();
+  boxes.innerHTML = '';
 
   for (let i = 0; i < amount; i++) {
     const size = basicSize + i * 10;
     const div = document.createElement('div');
     div.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}`;
     fragment.appendChild(div);
-    boxes.innerHTML = '';
   }
+  
+  inputEl.value= '';
   boxes.appendChild(fragment); 
-  document.querySelector('#controls input').value = "";
 
 }
 
